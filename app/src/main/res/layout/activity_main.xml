@@ -24,12 +24,12 @@
                 android:layout_height="wrap_content"
                 android:text="Remove" />
         </LinearLayout>
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/dynamicArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-        </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
 
 

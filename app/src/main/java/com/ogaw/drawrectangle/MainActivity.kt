@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 
@@ -18,31 +19,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val textArea = findViewById<LinearLayout>(R.id.dynamicArea)
+        val textArea = findViewById<FrameLayout>(R.id.dynamicArea)
         val rectangleList = mutableListOf<View>()
 
         findViewById<Button>(R.id.button_add).apply {
             this.setOnClickListener{
                 val view = View(context)
-                // 成功例 1
-//                view.layoutParams = ViewGroup.LayoutParams(100, 100)
-//                view.setBackgroundColor(Color.BLUE)
-
-                // マージンありで四角を作成する方法
-//                var tempLayoutParams = ViewGroup.LayoutParams()
-//                tempLayoutParams.width = 100
-//                tempLayoutParams.height = 100
-//
-//                view.layoutParams = tempLayoutParams
-
+                
                 val marginParams = ViewGroup.MarginLayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT
                 ).apply {
-                    this.width = 100
-                    this.height = 100
-                    this.topMargin = 100
-                    this.leftMargin = 100
+                    this.width = (rectangleList.size + 1) * 10
+                    this.height = (rectangleList.size + 1) * 10
+                    this.topMargin = (rectangleList.size + 1) * 100
+                    this.leftMargin = (rectangleList.size + 1) * 100
                 }
 
                 view.layoutParams = marginParams
