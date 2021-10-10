@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button_add).apply {
             this.setOnClickListener{
                 val view = View(context)
-                
+
                 val marginParams = ViewGroup.MarginLayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT
@@ -36,8 +36,12 @@ class MainActivity : AppCompatActivity() {
                     this.leftMargin = (rectangleList.size + 1) * 100
                 }
 
+                val border = GradientDrawable()
+//                border.setColor(Color.WHITE)
+                border.setStroke(2, Color.BLUE)
+                view.background = border
+
                 view.layoutParams = marginParams
-                view.setBackgroundColor(Color.BLUE)
 
                 rectangleList.add(view)
                 textArea.addView(view)
